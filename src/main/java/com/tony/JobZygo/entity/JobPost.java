@@ -20,3 +20,4 @@ public class JobPost {
     private String location;
     List<String> techs = new ArrayList<>();
 }
+

@@ -13,19 +13,19 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost:3000", "http://192.168.1.37:3000"})
+@RequestMapping("/jobzygo")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostController {
 
     @Autowired
     PostService postService;
 
 
-    //    @RequestMapping(value = "/")
-    public void redirect(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/swagger-ui.html");
-
-    }
+//    @RequestMapping(value = "/")
+//    public void redirect(HttpServletResponse response) throws IOException {
+//        response.sendRedirect("/swagger-ui.html");
+//
+//    }
 
     @GetMapping("/jobs")
     public ResponseEntity<List<JobPost>> getAllPost() {
@@ -39,9 +39,12 @@ public class PostController {
         return new ResponseEntity<>(postByText, HttpStatus.OK);
     }
 
+
     @PostMapping("/jobs")
     public ResponseEntity<JobPost> createJP(@RequestBody JobPost jobPost) {
         postService.createJP(jobPost);
         return new ResponseEntity<>(jobPost, HttpStatus.CREATED);
     }
+
+
 }

@@ -30,4 +30,6 @@ public class PostService {
     public List<JobPost> findPostByText(String text) {
       return  searchRepoIml.findByText(text);
     }
+
+
 }

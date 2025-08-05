@@ -16,8 +16,8 @@ public class UserDetailsServiceIml implements UserDetailsService {
     UserRepo userRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String firstName) throws UsernameNotFoundException {
-        User user = userRepo.findByFirstName(firstName);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepo.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("user not found");
         }
