@@ -17,7 +17,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -31,35 +35,45 @@ public class SpringSecurity {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.csrf(customizer -> customizer.disable())
+        return http
+                .cors(Customizer.withDefaults())  // Enable CORS
+                .csrf(customizer -> customizer.disable())
                 .authorizeHttpRequests(request -> request
-                        // Public endpoints
+                        // Public endpoints - ORDER MATTERS!
+                        .requestMatchers(HttpMethod.POST, "/user/auth/signup").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/user    /auth/login").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/api/auth/**").permitAll() // Allow preflight
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**").permitAll()
-
-
-                        // Protected: job CRUD
+                        .requestMatchers(HttpMethod.GET, "/api/health").permitAll() // Add health check
+                        // Protected: job creation
                         .requestMatchers(HttpMethod.POST, "/api/jobs").authenticated()
-                        .requestMatchers(HttpMethod.PUT, "/api/jobs/{id}").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "/api/jobs/{id}").authenticated()
-                        .requestMatchers(HttpMethod.GET, "/api/jobs/my-jobs").authenticated()
-
-
-                        // Protected: apply endpoint (use {id} or *)
-                        .requestMatchers(HttpMethod.POST, "/api/jobs/{id}/apply").authenticated()
-
-
-                        // Protected: user profile & related CRUD
-                        .requestMatchers("/api/users/me/**").authenticated()
-
                         // All other requests require authentication
-                        .anyRequest().authenticated()
-                )
-
-                .httpBasic(Customizer.withDefaults())
+                        .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+
+        // FIX: Add your actual IP address
+        configuration.setAllowedOrigins(Arrays.asList(
+                "http://localhost:3000",
+                "http://192.168.1.18:3000",  // Add your actual IP
+                "http://127.0.0.1:3000"
+        ));
+
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L); // Cache preflight for 1 hour
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
     @Bean
@@ -73,7 +87,10 @@ public class SpringSecurity {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
-
     }
 
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(12);
+    }
 }
