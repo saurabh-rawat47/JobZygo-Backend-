@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api")
 @CrossOrigin(origins = {"http://localhost:3000", "http://192.168.1.37:3000"})
 public class UserController {
 

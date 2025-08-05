@@ -40,8 +40,8 @@ public class SpringSecurity {
                 .csrf(customizer -> customizer.disable())
                 .authorizeHttpRequests(request -> request
                         // Public endpoints - ORDER MATTERS!
-                        .requestMatchers(HttpMethod.POST, "/user/auth/signup").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/user    /auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/signup").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/api/auth/**").permitAll() // Allow preflight
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**").permitAll()
