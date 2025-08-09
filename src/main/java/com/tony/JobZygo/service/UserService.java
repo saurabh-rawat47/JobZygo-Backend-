@@ -47,12 +47,28 @@ public class UserService {
             return savedUser;
 
         } catch (RuntimeException e) {
-            // Re-throw runtime exceptions (like duplicate user)
             throw e;
         } catch (Exception e) {
             System.err.println("Error saving user: " + e.getMessage());
             e.printStackTrace();
             throw new RuntimeException("Failed to create user: " + e.getMessage());
+        }
+    }
+
+    // Special signup method for OAuth users
+    public User signupOAuth(User user) {
+        try {
+            // For OAuth users, we don't encode the password since they don't have one
+            System.out.println("Saving OAuth user to database: " + user.getUsername());
+            User savedUser = userRepo.save(user);
+            System.out.println("OAuth user saved successfully with ID: " + savedUser.getId());
+
+            return savedUser;
+
+        } catch (Exception e) {
+            System.err.println("Error saving OAuth user: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Failed to create OAuth user: " + e.getMessage());
         }
     }
 
@@ -75,5 +91,9 @@ public class UserService {
 
     public User findByUsername(String username) {
         return userRepo.findByUsername(username);
+    }
+
+    public User findByEmail(String email) {
+        return userRepo.findByEmail(email);
     }
 }
