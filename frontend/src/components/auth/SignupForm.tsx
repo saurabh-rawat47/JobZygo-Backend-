@@ -66,7 +66,20 @@ export default function SignupForm({ onSuccess, onSwitchToLogin }: SignupFormPro
       const response = await authAPI.signup(signupData);
       
       if (response.success) {
-        onSuccess();
+        // Automatically log the user in to obtain token and persist user
+        try {
+          const loginResp = await authAPI.login({ username: data.username, password: data.password });
+          if (loginResp.success) {
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('user', JSON.stringify(loginResp.user));
+            }
+            onSuccess();
+          } else {
+            setError(loginResp.message || 'Signup successful, but auto login failed. Please sign in.');
+          }
+        } catch (loginErr: any) {
+          setError(loginErr.response?.data?.message || 'Signup successful, but auto login failed. Please sign in.');
+        }
       } else {
         setError(response.message);
       }

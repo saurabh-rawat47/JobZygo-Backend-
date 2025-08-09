@@ -35,6 +35,10 @@ body {
   color: #111827 !important;
 }
 
+.text-gray-800 {
+  color: #1f2937 !important;
+}
+
 .text-gray-700 {
   color: #374151 !important;
 }
@@ -53,6 +57,14 @@ body {
 
 .text-blue-600 {
   color: #2563eb !important;
+}
+
+.text-blue-800 {
+  color: #1e40af !important;
+}
+
+.text-purple-800 {
+  color: #5b21b6 !important;
 }
 
 .text-green-600 {

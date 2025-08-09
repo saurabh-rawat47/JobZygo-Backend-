@@ -172,7 +172,7 @@ export default function CreateJobForm({ onSuccess, onCancel }: CreateJobFormProp
           <div className="flex flex-wrap gap-2">
             {currentTechs.map((tech, index) => (
               <span
-                key={index}
+                key={`${tech}-${index}`}
                 className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800"
               >
                 {tech}
