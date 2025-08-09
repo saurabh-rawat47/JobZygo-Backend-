@@ -55,7 +55,20 @@ export default function Home() {
   }
 
   if (user) {
-    return null; // Will redirect to dashboard
+    // Show a visible redirect state instead of a blank screen
+    // Use replace to avoid stacking history entries
+    router.replace('/dashboard');
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Redirecting to your dashboard...</p>
+          <p className="mt-2 text-sm text-gray-500">
+            If you are not redirected, <a href="/dashboard" className="text-blue-600 underline">click here</a>.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
