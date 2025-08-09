@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema, LoginFormData } from '@/lib/validation';
 import { authAPI } from '@/lib/api';
+import { getApiErrorMessage } from '@/lib/errors';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { Eye, EyeOff } from 'lucide-react';
@@ -50,8 +51,8 @@ export default function LoginForm({ onSuccess, onSwitchToSignup }: LoginFormProp
       } else {
         setError(response.message);
       }
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    } catch (err: unknown) {
+      setError(getApiErrorMessage(err, 'Login failed. Please try again.'));
     } finally {
       setIsLoading(false);
     }
@@ -114,7 +115,7 @@ export default function LoginForm({ onSuccess, onSwitchToSignup }: LoginFormProp
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <button
               type="button"
               onClick={onSwitchToSignup}

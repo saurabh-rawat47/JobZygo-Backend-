@@ -8,7 +8,8 @@ import { authAPI } from '@/lib/api';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
-import { Eye, EyeOff, Mail, Lock, User, CheckCircle, XCircle } from 'lucide-react';
+import { Eye, EyeOff, CheckCircle, XCircle } from 'lucide-react';
+import { getApiErrorMessage } from '@/lib/errors';
 
 interface SignupFormProps {
   onSuccess: () => void;
@@ -66,12 +67,25 @@ export default function SignupForm({ onSuccess, onSwitchToLogin }: SignupFormPro
       const response = await authAPI.signup(signupData);
       
       if (response.success) {
-        onSuccess();
+        // Automatically log the user in to obtain token and persist user
+        try {
+          const loginResp = await authAPI.login({ username: data.username, password: data.password });
+          if (loginResp.success) {
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('user', JSON.stringify(loginResp.user));
+            }
+            onSuccess();
+          } else {
+            setError(loginResp.message || 'Signup successful, but auto login failed. Please sign in.');
+          }
+        } catch (loginErr: unknown) {
+          setError(getApiErrorMessage(loginErr, 'Signup successful, but auto login failed. Please sign in.'));
+        }
       } else {
         setError(response.message);
       }
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Signup failed. Please try again.');
+    } catch (err: unknown) {
+      setError(getApiErrorMessage(err, 'Signup failed. Please try again.'));
     } finally {
       setIsLoading(false);
     }

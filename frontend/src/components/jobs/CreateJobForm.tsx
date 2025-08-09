@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { jobPostSchema, JobPostFormData } from '@/lib/validation';
 import { jobsAPI } from '@/lib/api';
+import { getApiErrorMessage } from '@/lib/errors';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
@@ -62,8 +63,8 @@ export default function CreateJobForm({ onSuccess, onCancel }: CreateJobFormProp
     try {
       await jobsAPI.createJob(data);
       onSuccess();
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to create job post. Please try again.');
+    } catch (err: unknown) {
+      setError(getApiErrorMessage(err, 'Failed to create job post. Please try again.'));
     } finally {
       setIsLoading(false);
     }

@@ -36,7 +36,7 @@ export const authAPI = {
     try {
       const response = await api.post('/signup', userData);
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Signup error:', error);
       throw error;
     }
@@ -50,7 +50,7 @@ export const authAPI = {
         localStorage.setItem('token', token.replace('Bearer ', ''));
       }
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Login error:', error);
       throw error;
     }
@@ -70,7 +70,7 @@ export const jobsAPI = {
     try {
       const response = await api.get('/jobzygo/jobs');
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Get jobs error:', error);
       return [];
     }
@@ -80,7 +80,7 @@ export const jobsAPI = {
     try {
       const response = await api.get(`/jobzygo/jobs/search/${encodeURIComponent(searchText)}`);
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Search jobs error:', error);
       return [];
     }
@@ -90,7 +90,7 @@ export const jobsAPI = {
     try {
       const response = await api.post('/jobzygo/jobs', jobData);
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Create job error:', error);
       throw error;
     }

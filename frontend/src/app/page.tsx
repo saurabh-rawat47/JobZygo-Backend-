@@ -28,6 +28,13 @@ export default function Home() {
     }
   }, []);
 
+  // Redirect to dashboard if user already exists to avoid rendering a blank page
+  useEffect(() => {
+    if (mounted && user) {
+      router.push('/dashboard');
+    }
+  }, [mounted, user, router]);
+
   const handleAuthSuccess = () => {
     if (typeof window !== 'undefined') {
       const savedUser = localStorage.getItem('user');
