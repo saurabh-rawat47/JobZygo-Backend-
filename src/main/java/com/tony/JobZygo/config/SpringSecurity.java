@@ -68,10 +68,12 @@ public class SpringSecurity {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Allow requests from your frontend
-        configuration.setAllowedOrigins(Arrays.asList(
+        // Allow requests from your frontend (support localhost and local network IPs)
+        configuration.setAllowedOriginPatterns(Arrays.asList(
                 "http://localhost:3000",
-                "http://192.168.1.37:3000"
+                "http://127.0.0.1:3000",
+                "http://0.0.0.0:3000",
+                "http://192.168.*:3000"
         ));
 
         // Allow all HTTP methods
