@@ -56,8 +56,6 @@ export default function Home() {
 
   if (user) {
     // Show a visible redirect state instead of a blank screen
-    // Use replace to avoid stacking history entries
-    router.replace('/dashboard');
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
         <div className="text-center">
