@@ -157,7 +157,7 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {recentJobs.map((job, index) => (
               <JobCard
-                key={job.id || `recent-job-${index}`}
+                key={typeof job.id === 'string' ? job.id : `recent-job-${index}`}
                 job={job}
                 onApply={user?.userType === 'jobseeker' ? handleApplyJob : undefined}
               />

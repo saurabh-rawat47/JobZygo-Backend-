@@ -123,7 +123,7 @@ export default function JobsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredJobs.map((job, index) => (
               <JobCard
-                key={job.id || `job-${index}`}
+                key={typeof job.id === 'string' ? job.id : `job-${index}`}
                 job={job}
                 onApply={user?.userType === 'jobseeker' ? handleApplyJob : undefined}
               />
