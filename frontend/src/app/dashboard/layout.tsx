@@ -40,6 +40,13 @@ export default function DashboardLayout({
     }
   }, [router]);
 
+  // Redirect only in an effect to avoid updating Router during render
+  useEffect(() => {
+    if (mounted && !isLoading && !user) {
+      router.push('/');
+    }
+  }, [mounted, isLoading, user, router]);
+
   if (!mounted || isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -52,7 +59,6 @@ export default function DashboardLayout({
   }
 
   if (!user) {
-    router.replace('/');
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
