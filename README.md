@@ -134,7 +134,7 @@ The application handles core job portal functionalities:
 
 ## 👨‍💻 Developer
 
-**Tony** - Java Backend Developer
+**Saurabh** - Java Backend Developer
 - **Primary Focus**: Spring Boot backend development with MongoDB integration
 - **Full-Stack Capability**: End-to-end application development
 - **Frontend**: Built with assistance from Cursor AI
