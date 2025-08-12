@@ -123,40 +123,7 @@ The application is configured to accept requests from:
 - `http://localhost:3000`
 - `http://192.168.1.37:3000`
 
-## 📝 API Documentation
 
-### Create a Job Posting
-```bash
-POST /api/jobs
-Content-Type: application/json
-
-{
-  "profile": "Software Engineer",
-  "exp": 3,
-  "jobType": "Full-time",
-  "companyName": "Tech Corp",
-  "desc": "We are looking for a skilled software engineer...",
-  "salary": 80000,
-  "location": "New York, NY",
-  "techs": ["Java", "Spring Boot", "MongoDB"]
-}
-```
-
-### Search Jobs
-```bash
-GET /api/jobs/search/software
-```
-
-### User Registration
-```bash
-POST /api/auth/signup
-Content-Type: application/json
-
-{
-  "username": "user@example.com",
-  "password": "password123"
-}
-```
 
 ## 🤝 Contributing
 
