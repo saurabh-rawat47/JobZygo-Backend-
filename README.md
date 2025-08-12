@@ -1,6 +1,6 @@
 # JobZygo - Job Portal Platform
 
-JobZygo is a modern full-stack job portal application that connects job seekers with employers. Built with Spring Boot backend and Next.js frontend, it demonstrates full-stack web application development with modern technologies and best practices.
+JobZygo is a modern full-stack job portal application that connects job seekers with employers. Built with Spring Boot backend and Next.js frontend, it demonstrates enterprise-level web application development with modern technologies and best practices.
 
 ## 🚀 Project Overview
 
@@ -17,7 +17,7 @@ A comprehensive job portal platform featuring secure user authentication, job ma
 
 ## 🏗️ Architecture & Technologies
 
-### Backend (Spring Boot - Self Developed)
+### Backend (Spring Boot - Primary Focus)
 - **Framework**: Spring Boot with Spring MVC
 - **Database**: MongoDB with Spring Data MongoDB
 - **Security**: Spring Security with JWT authentication
@@ -25,7 +25,7 @@ A comprehensive job portal platform featuring secure user authentication, job ma
 - **Authentication**: Google OAuth 2.0 integration
 - **Architecture**: Layered architecture (Controller → Service → Repository)
 
-### Frontend (Next.js - Cursor AI Assisted)
+### Frontend (Next.js - AI Assisted)
 - **Framework**: Next.js 15.4.6 with App Router and TypeScript
 - **Styling**: Tailwind CSS for modern, responsive design
 - **UI Components**: Headless UI components and Lucide React icons
@@ -92,27 +92,28 @@ com.tony.JobZygo/
 
 ## 🎯 Technical Skills Demonstrated
 
-### Backend Development (Self Learned)
-- Spring Boot ecosystem and dependency injection
-- MongoDB integration and NoSQL database design
-- RESTful API development and documentation
-- Security implementation with JWT and OAuth
-- Exception handling and input validation
-- Layered architecture and separation of concerns
+### Backend Development (Core Expertise)
+- **Spring Boot Ecosystem**: Comprehensive understanding of Spring framework
+- **Spring Security**: JWT authentication and authorization implementation
+- **Spring Data MongoDB**: NoSQL database integration and optimization
+- **RESTful API Development**: Design and implementation of web services
+- **Exception Handling**: Comprehensive error management and validation
+- **Layered Architecture**: Clean separation of concerns and maintainable code
+- **OAuth 2.0 Integration**: Google authentication implementation
+- **Database Design**: MongoDB schema design and indexing strategies
 
 ### Frontend Development (AI Assisted)
-- Modern React development with Next.js
-- TypeScript for type safety
-- Responsive UI design with Tailwind CSS
-- Form handling and validation
-- State management and lifecycle methods
-- API integration and error handling
+- **Modern React Development**: Understanding of Next.js and React patterns
+- **TypeScript**: Type-safe development practices
+- **Responsive UI Design**: Tailwind CSS implementation
+- **Form Handling**: React Hook Form and validation
+- **API Integration**: Frontend-backend communication
 
 ### Database & DevOps
-- MongoDB database design and optimization
-- Cloud database integration (MongoDB Atlas)
-- CORS configuration for cross-origin requests
-- Environment configuration management
+- **MongoDB**: Database design, optimization, and cloud integration
+- **MongoDB Atlas**: Cloud database management and configuration
+- **CORS Configuration**: Cross-origin request handling
+- **Environment Management**: Application properties and configuration
 
 ## 💼 Business Logic
 
@@ -133,18 +134,20 @@ The application handles core job portal functionalities:
 
 ## 👨‍💻 Developer
 
-**Tony** - Fresher Developer
-- **Backend**: Self-developed Spring Boot application with MongoDB integration
+**Tony** - Java Backend Developer
+- **Primary Focus**: Spring Boot backend development with MongoDB integration
+- **Full-Stack Capability**: End-to-end application development
 - **Frontend**: Built with assistance from Cursor AI
 
 ## 🛠️ Technology Stack
 
-**Backend Technologies:**
+**Backend Technologies (Core Expertise):**
 - Spring Boot, Spring Security, Spring Data MongoDB
 - JWT Authentication, Google OAuth 2.0
 - MongoDB Atlas, Java 17+
+- RESTful API Design, Exception Handling
 
-**Frontend Technologies:**
+**Frontend Technologies (AI Assisted):**
 - Next.js, TypeScript, React
 - Tailwind CSS, Headless UI, Lucide React
 - React Hook Form, Zod Validation, Axios
@@ -156,4 +159,4 @@ The application handles core job portal functionalities:
 
 ---
 
-*This project demonstrates my ability to work with modern development tools, including AI-assisted development, while building a comprehensive full-stack application.*
+*This project demonstrates my expertise in Java backend development with Spring Boot, while showcasing the ability to work with modern development tools and AI-assisted frontend development.*
