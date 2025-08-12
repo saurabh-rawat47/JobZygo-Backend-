@@ -76,46 +76,7 @@ spring.data.mongodb.database=tony
 spring.data.mongodb.auto-index-creation=true
 ```
 
-## 🚀 Getting Started
 
-### Prerequisites
-- Java 17 or higher
-- Maven
-- MongoDB instance
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd JobZygo-Backend
-   ```
-
-2. **Configure MongoDB**
-   - Update the MongoDB connection string in `src/main/resources/application.properties`
-   - Ensure your MongoDB instance is running
-
-3. **Build and run**
-   ```bash
-   mvn clean install
-   mvn spring-boot:run
-   ```
-
-4. **Access the application**
-   - API will be available at `http://localhost:8080`
-   - Swagger UI (if configured) at `http://localhost:8080/swagger-ui.html`
-
-## 🔧 Development
-
-### Running Tests
-```bash
-mvn test
-```
-
-### Building for Production
-```bash
-mvn clean package
-```
 
 ## 🌐 CORS Configuration
 
