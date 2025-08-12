@@ -6,6 +6,8 @@ A full-stack job search and recruitment platform built with Spring Boot and Next
 
 JobZygo is a comprehensive job search and recruitment platform that connects job seekers with employers. The project features a Spring Boot backend with MongoDB database and a Next.js frontend built with TypeScript.
 
+**Note**: The frontend was completely developed with the assistance of Cursor AI, while the backend was self-developed.
+
 ## Features
 
 - User authentication with Google OAuth 2.0
@@ -17,13 +19,13 @@ JobZygo is a comprehensive job search and recruitment platform that connects job
 
 ## Tech Stack
 
-### Backend
+### Backend (Self-Developed)
 - Spring Boot (Java)
 - MongoDB
 - OAuth 2.0 (Google)
 - Maven
 
-### Frontend
+### Frontend (Cursor AI Assisted)
 - Next.js 15.4.6
 - React 19.1.0
 - TypeScript
@@ -36,8 +38,8 @@ JobZygo is a comprehensive job search and recruitment platform that connects job
 
 ```
 JobZygo/
-├── frontend/          # Next.js frontend application
-└── src/              # Spring Boot backend
+├── frontend/          # Next.js frontend (Cursor AI assisted)
+└── src/              # Spring Boot backend (Self-developed)
     └── main/
         ├── java/com/tony/JobZygo/
         │   ├── config/
@@ -51,29 +53,44 @@ JobZygo/
             └── application.properties
 ```
 
-## Getting Started
+## Development Approach
 
-### Backend Setup
-1. Ensure you have Java 17+ installed
-2. Configure MongoDB connection in `application.properties`
-3. Set up Google OAuth credentials
-4. Run: `mvn spring-boot:run`
+### Backend Development
+- **Self-Developed**: Built the complete Spring Boot backend from scratch
+- **Database Design**: Designed and implemented MongoDB schema
+- **API Development**: Created RESTful services with proper error handling
+- **Security Implementation**: Integrated OAuth 2.0 authentication
+- **Configuration Management**: Set up application properties and environment variables
 
-### Frontend Setup
-1. Navigate to `frontend/` directory
-2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
+### Frontend Development
+- **Cursor AI Assisted**: Complete frontend development with AI assistance
+- **Learning Experience**: Used AI to understand modern frontend patterns and best practices
+- **Technology Exploration**: Explored Next.js, React, TypeScript, and modern UI libraries
+- **Code Quality**: Maintained clean, efficient code structure with AI guidance
 
-## Configuration
+## Skills Demonstrated
 
-Update `src/main/resources/application.properties` with your:
-- MongoDB connection string
-- Google OAuth client ID and secret
+### Technical Skills
+- **Full-Stack Development**: End-to-end application development experience
+- **Java Development**: Spring Boot framework and backend architecture
+- **Database Management**: MongoDB NoSQL database design and implementation
+- **API Design**: RESTful service architecture and implementation
+- **Security**: OAuth 2.0 authentication and authorization
+- **Modern Frontend**: Understanding of React, Next.js, and TypeScript
 
-## Development
+### Learning & Adaptability
+- **AI Tool Proficiency**: Experience with modern AI-assisted development
+- **Technology Adoption**: Quickly learned and implemented new frameworks
+- **Problem-Solving**: Debugged and resolved complex technical challenges
+- **Code Quality**: Maintained clean, well-documented, and maintainable code
 
-- Backend runs on: `http://localhost:8080`
-- Frontend runs on: `http://localhost:3000`
+## Project Highlights
+
+- **Production-Ready Application**: Complete, deployable full-stack solution
+- **Modern Technology Stack**: Current industry-standard tools and frameworks
+- **Security Implementation**: Industry-standard authentication and data protection
+- **Responsive Design**: Mobile-friendly, cross-device compatible interface
+- **Scalable Architecture**: Well-structured, maintainable codebase
 
 ## Author
 
@@ -81,4 +98,4 @@ Tony - Fresher Developer
 
 ---
 
-*Built with Spring Boot, Next.js, and Cursor AI assistance for frontend development.*
+*This project demonstrates my ability to work with modern development tools, including AI-assisted development, while building a comprehensive full-stack application.*
