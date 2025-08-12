@@ -218,7 +218,7 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**Tony** - Full Stack Developer
+**Tony** - Backend Developer
 - Backend: Spring Boot application with MongoDB integration
 - Frontend: Built with assistance from Cursor AI
 
